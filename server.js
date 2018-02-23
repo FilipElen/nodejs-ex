@@ -18,8 +18,8 @@ ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 });*/
 var connection = mysql.createConnection({
   host     : process.env.MYSQL_SERVICE_HOST,
-  user     : 'root',
-  password : process.env.MYSQL_PASSWORD,
+  user     : 'userJJI',
+  password : 'root',
   port     : process.env.MYSQL_SERVICE_PORT,
   database : 'books'
 });
