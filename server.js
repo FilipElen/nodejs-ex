@@ -18,10 +18,12 @@ ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 });*/
 var connection = mysql.createConnection({
   host     : process.env.MYSQL_SERVICE_HOST,
+  user     : process.env.MYSQL_USER,
+  password : process.env.MYSQL_PASSWORD,
   port     : process.env.MYSQL_SERVICE_PORT,
   database : 'books'
 });
-console.log(connection);
+console.log('connection created');
 Object.assign=require('object-assign')
 
 app.engine('html', require('ejs').renderFile);
