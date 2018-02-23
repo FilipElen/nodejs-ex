@@ -2,17 +2,18 @@
 var express = require('express'),
 app     = express(),
 morgan  = require('morgan'),
-mysql      = require('mysql');
+mysql    = require('mysql');
 
 
 
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
-    ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
-    mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
-    mongoURLLabel = "";
+ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
 var connection = mysql.createConnection({
-  host     : 'mysql.security-xss-assignment2.svc',
+  host     : '127.0.0.1',
+  port     : '13306',
+  user     : 'root',
+  password : 'root',
   database : 'books'
 });
 Object.assign=require('object-assign')
@@ -32,10 +33,12 @@ app.get('/', function (req, res) {
     console.log('connected as id ' + connection.threadId);
   });
   connection.query('SELECT * FROM books.tblBook', function (error, results, fields) {
-  if (error) throw error;
-  queryResult = results;
-});
-  res.render('index.html', {books : queryResult});
+    if (error) throw error;
+    queryResult = results;
+    connection.end();
+    res.render('index.html', {books : queryResult});
+  });
+
 });
 
 // error handling
@@ -44,7 +47,8 @@ app.use(function(err, req, res, next){
   res.status(500).send('Something bad happened!');
 });
 
-app.listen(port, ip);
+//app.listen(port, ip);
+app.listen(8080, '127.0.0.1');
 console.log('Server running on http://%s:%s', ip, port);
 
 module.exports = app ;

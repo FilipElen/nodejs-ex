@@ -32,90 +32,29 @@
     </div>
     <div class="panel-body">
       <div class="row" id="movies">
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <div class="caption">
-              <h3>Promise of Blood</h3>
-              <h4>Brian McClellan </h4>
-              <p>The Age of Kings is dead . . . and I have killed it.<br /><br />
-                It's a bloody business overthrowing a king...
-                Field Marshal Tamas' coup against his king sent corrupt aristocrats to the guillotine and brought bread to the starving. But it also provoked war with the Nine Nations, internal attacks by royalist fanatics, and the greedy to scramble for money and power by Tamas's supposed allies: the Church, workers unions, and mercenary forces.<br /><br />
-
-                Stretched to his limit, Tamas is relying heavily on his few remaining powder mages, including the embittered Taniel, a brilliant marksman who also happens to be his estranged son, and Adamat, a retired police inspector whose loyalty is being tested by blackmail.<br /><br />
-
-                But when gods are involved...
-                Now, as attacks batter them from within and without, the credulous are whispering about omens of death and destruction. Just old peasant legends about the gods waking to walk the earth. No modern educated man believes that sort of thing. But they should...<br /><br />
-
-                In a rich, distinctive world that mixes magic with technology, who could stand against mages that control gunpowder and bullets? PROMISE OF BLOOD is the start of a new epic fantasy series from Brian McClellan.</p>
+        <% for(var i=0; i < books.length; i++) {%>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <div class="caption">
+                <h3><%= books[i].naam %></h3>
+                <h4><%= books[i].auteur %></h4>
+                <p><%= books[i].beschrijving %></p>
                 <div class="row">
                   <div class="col-md-4">
                     <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
                     <span class="label label-primary">Fantasy</span>
                     <span class="label label-primary">Epic</span>
                   </div>
-                  <div class="col-md-4">
-                    <span class="glyphicon glyphicon-book" aria-hidden="true">2013</span>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <div class="caption">
-                <h3>The Crimson Campaign</h3>
-                <h4>Brian McClellan </h4>
-                <p>The hounds at our heels will soon know we are lions<br /><br />
-                  Tamas's invasion of Kez ends in disaster when a Kez counter-offensive leaves him cut off behind enemy lines with only a fraction of his army, no supplies, and no hope of reinforcements. Drastically outnumbered and pursued by the enemy's best, he must lead his men on a reckless march through northern Kez to safety, and back over the mountains so that he can defend his country from an angry god. <br /><br />
-                  In Adro, Inspector Adamat only wants to rescue his wife. To do so he must track down and confront the evil Lord Vetas. He has questions for Vetas concerning his enigmatic master, but the answers might come too quickly.<br /><br />
-                  With Tamas and his powder cabal presumed dead, Taniel Two-shot finds himself alongside the god-chef Mihali as the last line of defence against Kresimir's advancing army. Tamas's generals bicker among themselves, the brigades lose ground every day beneath the Kez onslaught, and Kresimir wants the head of the man who shot him in the eye.</p>
-                  <div class="row">
-                    <div class="col-md-4">
-                      <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
-                      <span class="label label-primary">Fantasy</span>
-                      <span class="label label-primary">Epic</span>
-                    </div>
-                    <div class="col-md-4">
-                      <span class="glyphicon glyphicon-book" aria-hidden="true">2014</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-              <div class="thumbnail">
-                <div class="caption">
-                  <h3>The Autumn Republic</h3>
-                  <h4>Brian McClellan </h4>
-                  <p>The capital has fallen...<br />
-                    Field Marshal Tamas returns to his beloved country to find that for the first time in history, the capital city of Adro lies in the hands of a foreign invader. His son is missing, his allies are indistinguishable from his foes, and reinforcements are several weeks away.<br /><br />
-
-                    An army divided...<br />
-                    With the Kez still bearing down upon them and without clear leadership, the Adran army has turned against itself. Inspector Adamat is drawn into the very heart of this new mutiny with promises of finding his kidnapped son.<br /><br />
-
-                    All hope rests with one...<br />
-                    And Taniel Two-shot, hunted by men he once thought his friends, must safeguard the only chance Adro has of getting through this war without being destroyed...<br /><br />
-
-                    THE AUTUMN REPUBLIC is the epic conclusion that began with Promise of Blood and The Crimson Campaign.</p>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
-                        <span class="label label-primary">Fantasy</span>
-                        <span class="label label-primary">Epic</span>
-                      </div>
-                      <div class="col-md-4">
-                        <span class="glyphicon glyphicon-book" aria-hidden="true">2015</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <% } %>
         </div>
-      </ul>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      </div>
+    </div>
+  </ul>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <div style='text-align: right;position: fixed;z-index:9999999;bottom: 0; width: 100%;cursor: pointer;line-height: 0;display:block !important;'><a title="Hosted on free web hosting 000webhost.com. Host your own website for FREE." target="_blank" href="https://www.000webhost.com/?utm_source=000webhostapp&amp;utm_campaign=000_logo&amp;utm_medium=website_dimmed-soil&amp;utm_content=footer_img"><img src="https://cdn.rawgit.com/000webhost/logo/e9bd13f7/footer-powered-by-000webhost-white2.png"  alt="www.000webhost.com"></a></div></body>
-    <% console.log(books.toString()); %>
-    </html>
+  <div style='text-align: right;position: fixed;z-index:9999999;bottom: 0; width: 100%;cursor: pointer;line-height: 0;display:block !important;'><a title="Hosted on free web hosting 000webhost.com. Host your own website for FREE." target="_blank" href="https://www.000webhost.com/?utm_source=000webhostapp&amp;utm_campaign=000_logo&amp;utm_medium=website_dimmed-soil&amp;utm_content=footer_img"><img src="https://cdn.rawgit.com/000webhost/logo/e9bd13f7/footer-powered-by-000webhost-white2.png"  alt="www.000webhost.com"></a></div></body>
+  </html>
