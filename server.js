@@ -4,12 +4,17 @@ app     = express(),
 morgan  = require('morgan'),
 mysql      = require('mysql');
 
+
+
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
+    ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
+    mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
+    mongoURLLabel = "";
+
 var connection = mysql.createConnection({
   host     : 'mysql.security-xss-assignment2.svc',
   database : 'books'
 });
-
-
 Object.assign=require('object-assign')
 
 app.engine('html', require('ejs').renderFile);
