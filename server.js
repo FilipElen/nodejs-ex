@@ -18,8 +18,8 @@ ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 });*/
 var connection = mysql.createConnection({
   host     : process.env.OPENSHIFT_MYSQL_DB_HOST,
-  user     : process.env.OPENSHIFT_MYSQL_DB_USER,
-  password : process.env.OPENSHIFT_MYSQL_DB_PASSWORD,
+  user     : process.env.OPENSHIFT_MYSQL_USER,
+  password : process.env.OPENSHIFT_MYSQL_PASSWORD,
   port     : process.env.OPENSHIFT_MYSQL_DB_PORT,
   database : 'books'
 });
