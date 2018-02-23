@@ -8,14 +8,7 @@ var connection = mysql.createConnection({
   host     : 'mysql.security-xss-assignment2.svc',
   database : 'books'
 });
-connection.connect(function(err) {
-  if (err) {
-    console.error('error connecting: ' + err.stack);
-    return;
-  }
 
-  console.log('connected as id ' + connection.threadId);
-});
 
 Object.assign=require('object-assign')
 
@@ -24,7 +17,20 @@ app.use(morgan('combined'))
 
 
 app.get('/', function (req, res) {
-  res.render('index.html');
+  var queryResult;
+  connection.connect(function(err) {
+    if (err) {
+      console.error('error connecting: ' + err.stack);
+      return;
+    }
+
+    console.log('connected as id ' + connection.threadId);
+  });
+  connection.query('SELECT * FROM books.tblBook', function (error, results, fields) {
+  if (error) throw error;
+  queryResult = results;
+});
+  res.render('index.html', {books : queryResult});
 });
 
 // error handling
