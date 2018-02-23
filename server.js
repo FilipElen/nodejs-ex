@@ -23,7 +23,7 @@ var connection = mysql.createConnection({
   port     : process.env.MYSQL_SERVICE_PORT,
   database : 'books'
 });
-console.log('connection created');
+console.log(process.env.MYSQL_USER);
 Object.assign=require('object-assign')
 
 app.engine('html', require('ejs').renderFile);
