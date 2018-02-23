@@ -1,7 +1,21 @@
 //  OpenShift sample Node application
 var express = require('express'),
-    app     = express(),
-    morgan  = require('morgan');
+app     = express(),
+morgan  = require('morgan'),
+mysql      = require('mysql');
+
+var connection = mysql.createConnection({
+  host     : 'mysql.security-xss-assignment2.svc',
+  database : 'books'
+});
+connection.connect(function(err) {
+  if (err) {
+    console.error('error connecting: ' + err.stack);
+    return;
+  }
+
+  console.log('connected as id ' + connection.threadId);
+});
 
 Object.assign=require('object-assign')
 
@@ -10,10 +24,8 @@ app.use(morgan('combined'))
 
 
 app.get('/', function (req, res) {
-    res.render('index.html');
+  res.render('index.html');
 });
-
-
 
 // error handling
 app.use(function(err, req, res, next){
