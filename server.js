@@ -18,14 +18,12 @@ ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 });*/
 var connection = mysql.createConnection({
   host     : process.env.OPENSHIFT_MYSQL_DB_HOST,
-  user     : process.env.OPENSHIFT_MYSQL_DB_USERNAME,
+  user     : process.env.OPENSHIFT_MYSQL_DB_USER,
   password : process.env.OPENSHIFT_MYSQL_DB_PASSWORD,
   port     : process.env.OPENSHIFT_MYSQL_DB_PORT,
   database : 'books'
 });
-console.log(process.env.OPENSHIFT_MYSQL_DB_HOST);
-console.log(process.env.OPENSHIFT_MYSQL_DB_USERNAME);
-console.log(process.env.OPENSHIFT_MYSQL_DB_PASSWORD);
+console.log(connection);
 Object.assign=require('object-assign')
 
 app.engine('html', require('ejs').renderFile);
