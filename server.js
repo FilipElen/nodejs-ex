@@ -17,13 +17,11 @@ ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
   database : 'books'
 });*/
 var connection = mysql.createConnection({
-  host     : process.env.OPENSHIFT_MYSQL_DB_HOST,
-  user     : process.env.OPENSHIFT_MYSQL_USER,
-  password : process.env.OPENSHIFT_MYSQL_PASSWORD,
-  port     : process.env.OPENSHIFT_MYSQL_DB_PORT,
+  host     : process.env.MYSQL_SERVICE_HOST,
+  port     : process.env.MYSQL_SERVICE_PORT,
   database : 'books'
 });
-console.log(process.env);
+console.log(connection);
 Object.assign=require('object-assign')
 
 app.engine('html', require('ejs').renderFile);
