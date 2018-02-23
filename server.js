@@ -23,7 +23,7 @@ var connection = mysql.createConnection({
   port     : process.env.OPENSHIFT_MYSQL_DB_PORT,
   database : 'books'
 });
-console.log(connection);
+console.log(process.env);
 Object.assign=require('object-assign')
 
 app.engine('html', require('ejs').renderFile);
