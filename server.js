@@ -5,24 +5,24 @@ morgan  = require('morgan'),
 mysql    = require('mysql');
 
 
-
+/*
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
 ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
-
-/*var connection = mysql.createConnection({
+*/
+var connection = mysql.createConnection({
   host     : '127.0.0.1',
   port     : '13306',
   user     : 'root',
   password : 'root',
   database : 'books'
-});*/
-var connection = mysql.createConnection({
+});
+/*var connection = mysql.createConnection({
   host     : process.env.MYSQL_SERVICE_HOST,
   user     : 'userJJI',
   password : 'root',
   port     : process.env.MYSQL_SERVICE_PORT,
   database : 'books'
-});
+});*/
 console.log(process.env.MYSQL_USER);
 Object.assign=require('object-assign')
 
@@ -55,8 +55,8 @@ app.use(function(err, req, res, next){
   res.status(500).send('Something bad happened!');
 });
 
-app.listen(port, ip);
-//app.listen(8080, '127.0.0.1');
+//app.listen(port, ip);
+app.listen(8080, '127.0.0.1');
 console.log('Server running on http://%s:%s', ip, port);
 
 module.exports = app ;
