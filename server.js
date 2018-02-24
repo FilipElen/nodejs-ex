@@ -58,14 +58,14 @@ app.get('/add.html', function (req, res) {
   res.render('add.html');
 });
 app.post('/add.html', function (req, res) {
-  let book = req.body;
+  var book = req.body;
   pool.getConnection(function(err, connection) {
     if (err) {
       console.error('error connecting: ' + err.stack);
       return;
     }
     console.log('connected as id ' + connection.threadId);
-    let query = "INSERT INTO books.tblBook (tblBook.naam, tblBook.auteur, tblBook.beschrijving)"+
+    var query = "INSERT INTO books.tblBook (tblBook.naam, tblBook.auteur, tblBook.beschrijving)"+
     " VALUES ('" + book.naam + "','" +  book.auteur + "','" +  book.beschrijving + "');"
     console.log('post query: ' + query);
     connection.query(query, function (error, results, fields) {
