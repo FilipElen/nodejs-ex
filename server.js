@@ -8,7 +8,7 @@ bodyParser = require('body-parser');
 
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
 ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
-
+/*
 var pool = mysql.createPool({
   multipleStatements: true,
   connectionLimit : 3,
@@ -17,8 +17,8 @@ var pool = mysql.createPool({
   user     : 'root',
   password : 'root',
   database : 'books'
-});
-/*
+});*/
+
 var pool = mysql.createPool({
 multipleStatements: true,
 connectionLimit : 3,
@@ -27,7 +27,7 @@ user     : 'userJJI',
 password : 'root',
 port     : process.env.MYSQL_SERVICE_PORT,
 database : 'books'
-});*/
+});
 Object.assign=require('object-assign');
 
 app.engine('html', require('ejs').renderFile);
@@ -84,8 +84,8 @@ app.use(function(err, req, res, next){
 });
 
 app.listen(port, ip);
-app.listen(8080, '127.0.0.1');
-console.log('server running');
-//console.log('Server running on http://%s:%s', ip, port);
+//app.listen(8080, '127.0.0.1');
+//console.log('server running');
+console.log('Server running on http://%s:%s', ip, port);
 
 module.exports = app ;
