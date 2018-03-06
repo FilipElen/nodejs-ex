@@ -24,6 +24,7 @@
         <ul class="nav navbar-nav">
           <li class="active"><a href="index.html">List <span class="sr-only">(current)</span></a></li>
           <li><a href="add.html">Add a book</a></li>
+          <li><a href="search.html">Search an author</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -44,13 +45,13 @@
                 <h3><%= books[i].naam %></h3>
                 <h4><%= books[i].auteur %></h4>
                 <h6><%- books[i].beschrijving %></h6>
-                <div class="row">
+                <!--<div class="row">
                   <div class="col-md-4">
                     <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
                     <span class="label label-primary">Fantasy</span>
                     <span class="label label-primary">Epic</span>
                   </div>
-                </div>
+                </div>-->
               </div>
             </div>
           </div>

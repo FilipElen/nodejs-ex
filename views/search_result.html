@@ -2,7 +2,8 @@
 <html>
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <title>Book DB</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <title>Xss Assignment </title>
 </head>
 <body >
   <nav class="navbar navbar-default">
@@ -21,8 +22,8 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li ><a href="index.html">List </a></li>
-          <li class="active"><a href="add.html">Add a book <span class="sr-only">(current)</span></a></li>
+          <l><a href="index.html">List</a></li>
+          <li><a href="add.html">Add a book</a></li>
           <li><a href="search.html">Search an author</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
@@ -30,21 +31,34 @@
   </nav>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">Add a book</h3>
+      <h3 class="panel-title">List of books from <%= books[0].auteur %></h3>
     </div>
     <div class="panel-body">
-      <form action="/add.html" method="post">
-        <label>Naam:</label>
-        <input type="text" name="naam"><br>
-        <label>Auteur:</label>
-        <input type="text" name="auteur"><br><br>
-        <label>Beschrijving:</label>
-        <textarea name="beschrijving" rows="10" cols="30"></textarea><br><br>
-        <input type="submit" value="Submit">
-      </form>
+      <div class="row" id="movies">
+        <p>
+
+        </p>
+        <% for(var i=0; i < books.length; i++) {%>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <div class="caption">
+                <h3><%= books[i].naam %></h3>
+                <h4><%= books[i].auteur %></h4>
+                <h6><%= books[i].beschrijving %></h6>
+                <!--<div class="row">
+                  <div class="col-md-4">
+                    <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
+                    <span class="label label-primary">Fantasy</span>
+                    <span class="label label-primary">Epic</span>
+                  </div>
+                </div>-->
+              </div>
+            </div>
+          </div>
+          <% } %>
+        </div>
+      </div>
     </div>
-  </div>
-</ul>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </ul>
 </body>
 </html>

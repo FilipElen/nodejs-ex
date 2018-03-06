@@ -22,24 +22,20 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li ><a href="index.html">List </a></li>
-          <li class="active"><a href="add.html">Add a book <span class="sr-only">(current)</span></a></li>
-          <li><a href="search.html">Search an author</a></li>
+          <li><a href="add.html">Add a book</a></li>
+          <li class="active"><a href="search.html">Search an author <span class="sr-only">(current)</span></a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">Add a book</h3>
+      <h3 class="panel-title">Search an author</h3>
     </div>
     <div class="panel-body">
-      <form action="/add.html" method="post">
-        <label>Naam:</label>
-        <input type="text" name="naam"><br>
+      <form action="/search.html" method="post">
         <label>Auteur:</label>
         <input type="text" name="auteur"><br><br>
-        <label>Beschrijving:</label>
-        <textarea name="beschrijving" rows="10" cols="30"></textarea><br><br>
         <input type="submit" value="Submit">
       </form>
     </div>
