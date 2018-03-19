@@ -2,7 +2,6 @@
 <html>
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <title>Book DB</title>
 </head>
 <body >
@@ -34,27 +33,14 @@
       <h3 class="panel-title">Search an author</h3>
     </div>
     <div class="panel-body">
-      <form >
+      <form action="/search.html" method="get">
         <label>Auteur:</label>
-        <input type="text" name="auteur" id="auteur"><br><br>
-        <button onclick="RedirectURL()" class="btn btn-default">Submit</button>
+        <textarea name="auteur" rows="10" cols="30"></textarea><br>
+        <input type="submit" value="Submit">
       </form>
     </div>
   </div>
 </ul>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-function createDynamicURL(){
-    //The variable to be returned
-    var URL;
-    URL += window.location.hostname;
-    URL += '/' + $('#auteur').val();
-    console.log(URL);
-    return URL;
-}
-function RedirectURL(){
-  window.location= createDynamicURL();
-}
-</script>
 </body>
 </html>

@@ -23,42 +23,43 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <l><a href="index.html">List</a></li>
-          <li><a href="add.html">Add a book</a></li>
-          <li><a href="search.html">Search an author</a></li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">List of books from <%= books[0].auteur %></h3>
-    </div>
-    <div class="panel-body">
-      <div class="row" id="movies">
-        <p>
+            <li><a href="add.html">Add a book</a></li>
+            <li><a href="search.html">Search an author</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">You searched for <%- searchTerm %></h3>
+        <h3 class="panel-title">List of books from <%= books[0].auteur %></h3>
+      </div>
+      <div class="panel-body">
+        <div class="row" id="movies">
+          <p>
 
-        </p>
-        <% for(var i=0; i < books.length; i++) {%>
-          <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <div class="caption">
-                <h3><%= books[i].naam %></h3>
-                <h4><%= books[i].auteur %></h4>
-                <h6><%= books[i].beschrijving %></h6>
-                <!--<div class="row">
+          </p>
+          <% for(var i=0; i < books.length; i++) {%>
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <div class="caption">
+                  <h3><%= books[i].naam %></h3>
+                  <h4><%= books[i].auteur %></h4>
+                  <h6><%= books[i].beschrijving %></h6>
+                  <!--<div class="row">
                   <div class="col-md-4">
-                    <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
-                    <span class="label label-primary">Fantasy</span>
-                    <span class="label label-primary">Epic</span>
-                  </div>
-                </div>-->
-              </div>
+                  <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
+                  <span class="label label-primary">Fantasy</span>
+                  <span class="label label-primary">Epic</span>
+                </div>
+              </div>-->
             </div>
           </div>
-          <% } %>
         </div>
+        <% } %>
       </div>
     </div>
-  </ul>
+  </div>
+</ul>
 </body>
 </html>

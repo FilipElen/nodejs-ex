@@ -48,7 +48,7 @@ passport.use(new Strategy(
   var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
   ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
-  /*var pool = mysql.createPool({
+  var pool = mysql.createPool({
     multipleStatements: true,
     connectionLimit : 3,
     host     : '127.0.0.1',
@@ -56,8 +56,8 @@ passport.use(new Strategy(
     user     : 'root',
     password : 'root',
     database : 'books'
-  });*/
-  
+  });
+/*
   var pool = mysql.createPool({
   multipleStatements: true,
   connectionLimit : 3,
@@ -66,7 +66,7 @@ passport.use(new Strategy(
   password : 'root',
   port     : process.env.MYSQL_SERVICE_PORT,
   database : 'books'
-});
+});*/
 Object.assign=require('object-assign');
 
 app.engine('html', require('ejs').renderFile);
@@ -159,12 +159,12 @@ app.get('/search.html/',connect_ensure_login.ensureLoggedIn('index.html'), funct
         }
         //res.header({ 'Location': 'http://127.0.0.1:8080/' + auteur });
         console.log('response header from search: ' + JSON.stringify(res.header()._headers));
-        res.render('search_result.html', {books : queryResult});
+        res.render('search_result.html', {books : queryResult, searchTerm : auteur});
       });
     });
   }
 });
-app.post('/search.html',connect_ensure_login.ensureLoggedIn('index.html'), function (req, res) {
+/*app.post('/search.html',connect_ensure_login.ensureLoggedIn('index.html'), function (req, res) {
   var queryResult;
   var request = req.body;
   pool.getConnection(function(err, connection) {
@@ -173,6 +173,8 @@ app.post('/search.html',connect_ensure_login.ensureLoggedIn('index.html'), funct
       return;
     }
     console.log('connected as id ' + connection.threadId);
+    var q = "SELECT * FROM books.tblBook where tblBook.auteur LIKE '%" + request.auteur + "%' ";
+    console.log('search querry: ' + q);
     connection.query("SELECT * FROM books.tblBook where tblBook.auteur LIKE '%" + request.auteur + "%' ", function (error, results, fields) {
       if (error) throw error;
       queryResult = results;
@@ -183,10 +185,10 @@ app.post('/search.html',connect_ensure_login.ensureLoggedIn('index.html'), funct
       }
       res.header({ 'Location': 'http://127.0.0.1:8080/' + request.auteur });
       console.log('response header from search: ' + JSON.stringify(res.header()._headers));
-      res.render('search_result.html', {books : queryResult});
+      res.render('search_result.html', {books : queryResult, searchTerm : request.auteur});
     });
   });
-});
+});*/
 app.get('/test', function (req, res) {
   //res.writeHead(200, { 'Content-Length': '00%0d%00%0d%0HTTP/1.1 200 OK0%0d%0Content-Type: text/html0%0d%0Content-Length: 190%0d%00%0d%0<html>HACKED</html>' });
   //res.writeHead(200,{'Content-Length' : '0', 'Content-Type' : 'text/html'});
@@ -206,9 +208,10 @@ app.use(function(err, req, res, next){
   res.status(500).send('Something bad happened!');
 });
 
-app.listen(port, ip);
-//app.listen(8080, '127.0.0.1');
-//console.log('server running');
-console.log('Server running on http://%s:%s', ip, port);
+//app.listen(port, ip);
+//console.log('Server running on http://%s:%s', ip, port);
+
+app.listen(8080, '127.0.0.1');
+console.log('server running dev mode');
 
 module.exports = app ;
